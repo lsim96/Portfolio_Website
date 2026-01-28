@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { Button } from "../components/Button";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+import resume from "../assets/Resume.pdf";
 
 const skills = [
   "React",
@@ -41,7 +42,7 @@ export const Hero = () => {
           alt="Hero image"
           className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/80 to-background"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background"></div>
       </div>
 
       {/* {Dots floating} */}
@@ -100,13 +101,17 @@ export const Hero = () => {
             {/* {Call to action} */}
 
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
-                Contact Me <ArrowRight className="w-5 h-5" />
-              </Button>
-              <AnimatedBorderButton>
-                <Download className="w-5 h-5" />
-                Download CV
-              </AnimatedBorderButton>
+              <a href="#contact">
+                <Button size="lg">
+                  Contact Me <ArrowRight className="w-5 h-5" />
+                </Button>
+              </a>
+              <a href={resume} download="Leonid_CV">
+                <AnimatedBorderButton>
+                  <Download className="w-5 h-5" />
+                  Download CV
+                </AnimatedBorderButton>
+              </a>
             </div>
 
             {/* {Social Links} */}
@@ -136,12 +141,12 @@ export const Hero = () => {
           <div className="relative animate-fade-in animation-delay-300">
             {/* {Profile Image} */}
             <div className="relative max-w-md mx-auto">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 via-transparent to primary/10 blur-2xl animate-pulse" />
+              <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-primary/30 via-transparent to primary/10 blur-2xl animate-pulse" />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
                   src="/profile-photo.jpg"
                   alt="Leon Simonoski"
-                  className="w-full aspect-[4/5] object-cover rounded-2xl"
+                  className="w-full aspect-4/5 object-cover rounded-2xl"
                 />
 
                 {/* {Floating Badge} */}
@@ -175,7 +180,7 @@ export const Hero = () => {
           <div className="relative overflow-hidden">
             <div className="flex animate-marquee">
               {[...skills, ...skills].map((skill, idx) => (
-                <div key={idx} className="flex-shrink-0 px-8 py-4">
+                <div key={idx} className="shrink-0 px-8 py-4">
                   <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
                     {skill}
                   </span>
